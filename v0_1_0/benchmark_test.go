@@ -621,6 +621,17 @@ func BenchmarkOrderedMap_Delete_oneEntry(b *testing.B) {
 	b.StopTimer()
 }
 
+func BenchmarkOrderedMap_Ldelete_oneEntry(b *testing.B) {
+	om := orderedmap.New[string, Foo]()
+
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
+		om.Ldelete("foo-0")
+	}
+	b.StopTimer()
+}
+
 func BenchmarkMap_Delete_oneEntry(b *testing.B) {
 	m := make(map[string]Foo)
 
@@ -691,6 +702,25 @@ func BenchmarkOrderedMap_Delete_fiveEntries(b *testing.B) {
 		om.Delete("foo-2")
 		om.Delete("foo-3")
 		om.Delete("foo-4")
+	}
+	b.StopTimer()
+}
+
+func BenchmarkOrderedMap_Ldelete_fiveEntries(b *testing.B) {
+	om := orderedmap.New[string, Foo]()
+
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
+		om.Store("foo-1", Foo{Bar: "bar-1", Baz: 1})
+		om.Store("foo-2", Foo{Bar: "bar-2", Baz: 2})
+		om.Store("foo-3", Foo{Bar: "bar-3", Baz: 3})
+		om.Store("foo-4", Foo{Bar: "bar-4", Baz: 4})
+		om.Ldelete("foo-0")
+		om.Ldelete("foo-1")
+		om.Ldelete("foo-2")
+		om.Ldelete("foo-3")
+		om.Ldelete("foo-4")
 	}
 	b.StopTimer()
 }
