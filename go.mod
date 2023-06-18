@@ -1,4 +1,4 @@
-module github.com/sttk-go/.benchmarks_orderedmap
+module github.com/sttk/benchmarks_orderedmap
 
 go 1.20
 
