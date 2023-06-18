@@ -1,4 +1,4 @@
-# [.benchmarks_orderedmap]()
+# [benchmarks_orderedmap](https://github.com/sttk/benchmarks_orderedmap-go)
 
 Benchmarks of `orderedmap`.
 

@@ -3,7 +3,7 @@ package v0_1_0_test
 import (
 	"testing"
 
-	orderedmap "github.com/sttk-go/.benchmarks_orderedmap/v0_1_0"
+	orderedmap "github.com/sttk/benchmarks_orderedmap/v0_1_0"
 
 	om_c "github.com/cevaris/ordered_map"
 	om_e "github.com/elliotchance/orderedmap/v2"
