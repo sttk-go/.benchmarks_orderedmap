@@ -17,115 +17,90 @@ type Foo struct {
 }
 
 func BenchmarkOrderedMap_New(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := orderedmap.New[string, Foo]()
 		_ = om
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_New(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		m := make(map[string]Foo)
 		_ = m
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_New(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_e.NewOrderedMap[string, Foo]()
 		_ = om
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_New(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_w.New[string, Foo]()
 		_ = om
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_New(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_i.New()
 		_ = om
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_New(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_c.NewOrderedMap()
 		_ = om
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Store_newOneEntry(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := orderedmap.New[string, Foo]()
 		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Store_newOneEntry(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		m := make(map[string]Foo)
 		m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Store_newOneEntry(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_e.NewOrderedMap[string, Foo]()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Store_newOneEntry(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_w.New[string, Foo]()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Store_newOneEntry(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_i.New()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Store_newOneEntry(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_c.NewOrderedMap()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Store_newFiveEntries(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := orderedmap.New[string, Foo]()
 		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
@@ -134,11 +109,9 @@ func BenchmarkOrderedMap_Store_newFiveEntries(b *testing.B) {
 		om.Store("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Store("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Store_newFiveEntries(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		m := make(map[string]Foo)
 		m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
@@ -147,11 +120,9 @@ func BenchmarkMap_Store_newFiveEntries(b *testing.B) {
 		m["foo-3"] = Foo{Bar: "bar-3", Baz: 3}
 		m["foo-4"] = Foo{Bar: "bar-4", Baz: 4}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Store_newFiveEntries(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_e.NewOrderedMap[string, Foo]()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
@@ -160,11 +131,9 @@ func BenchmarkOmE_Store_newFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Store_newFiveEntries(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_w.New[string, Foo]()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
@@ -173,11 +142,9 @@ func BenchmarkOmW_Store_newFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Store_newFiveEntries(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_i.New()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
@@ -186,11 +153,9 @@ func BenchmarkOmI_Store_newFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Store_newFiveEntries(b *testing.B) {
-	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		om := om_c.NewOrderedMap()
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
@@ -199,10 +164,10 @@ func BenchmarkOmC_Store_newFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Store_rewriteOneEntry(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -210,10 +175,10 @@ func BenchmarkOrderedMap_Store_rewriteOneEntry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Store_rewriteOneEntry(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 	m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 
@@ -221,10 +186,10 @@ func BenchmarkMap_Store_rewriteOneEntry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Store_rewriteOneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -232,10 +197,10 @@ func BenchmarkOmE_Store_rewriteOneEntry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Store_rewriteOneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -243,10 +208,10 @@ func BenchmarkOmW_Store_rewriteOneEntry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Store_rewriteOneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -254,10 +219,10 @@ func BenchmarkOmI_Store_rewriteOneEntry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Store_rewriteOneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -265,10 +230,10 @@ func BenchmarkOmC_Store_rewriteOneEntry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Store_rewriteFiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Store("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -284,10 +249,10 @@ func BenchmarkOrderedMap_Store_rewriteFiveEntries(b *testing.B) {
 		om.Store("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Store("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Store_rewriteFiveEntries(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 	m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 	m["foo-1"] = Foo{Bar: "bar-1", Baz: 1}
@@ -303,10 +268,10 @@ func BenchmarkMap_Store_rewriteFiveEntries(b *testing.B) {
 		m["foo-3"] = Foo{Bar: "bar-3", Baz: 3}
 		m["foo-4"] = Foo{Bar: "bar-4", Baz: 4}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Store_rewriteFiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -322,10 +287,10 @@ func BenchmarkOmE_Store_rewriteFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Store_rewriteFiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -341,10 +306,10 @@ func BenchmarkOmW_Store_rewriteFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Store_rewriteFiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -360,10 +325,10 @@ func BenchmarkOmI_Store_rewriteFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Store_rewriteFiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -379,10 +344,10 @@ func BenchmarkOmC_Store_rewriteFiveEntries(b *testing.B) {
 		om.Set("foo-3", Foo{Bar: "bar-3", Baz: 3})
 		om.Set("foo-4", Foo{Bar: "bar-4", Baz: 4})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Load_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -392,10 +357,10 @@ func BenchmarkOrderedMap_Load_oneEntry(b *testing.B) {
 		_ = value
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Load_oneEntry(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 	m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 
@@ -405,10 +370,10 @@ func BenchmarkMap_Load_oneEntry(b *testing.B) {
 		_ = value
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Load_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -418,10 +383,10 @@ func BenchmarkOmE_Load_oneEntry(b *testing.B) {
 		_ = value
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Load_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -431,10 +396,10 @@ func BenchmarkOmW_Load_oneEntry(b *testing.B) {
 		_ = value
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Load_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -444,10 +409,10 @@ func BenchmarkOmI_Load_oneEntry(b *testing.B) {
 		_ = value
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Load_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -457,10 +422,10 @@ func BenchmarkOmC_Load_oneEntry(b *testing.B) {
 		_ = value
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Load_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Store("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -482,10 +447,10 @@ func BenchmarkOrderedMap_Load_fiveEntries(b *testing.B) {
 		_ = v4
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Load_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 	m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 	m["foo-1"] = Foo{Bar: "bar-1", Baz: 1}
@@ -507,10 +472,10 @@ func BenchmarkMap_Load_fiveEntries(b *testing.B) {
 		_ = v4
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Load_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -532,10 +497,10 @@ func BenchmarkOmE_Load_fiveEntries(b *testing.B) {
 		_ = v4
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Load_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -557,10 +522,10 @@ func BenchmarkOmW_Load_fiveEntries(b *testing.B) {
 		_ = v4
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Load_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -582,10 +547,10 @@ func BenchmarkOmI_Load_fiveEntries(b *testing.B) {
 		_ = v4
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Load_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -607,10 +572,10 @@ func BenchmarkOmC_Load_fiveEntries(b *testing.B) {
 		_ = v4
 		_ = exists
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Delete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 
 	b.StartTimer()
@@ -618,10 +583,10 @@ func BenchmarkOrderedMap_Delete_oneEntry(b *testing.B) {
 		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 		om.Delete("foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Ldelete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 
 	b.StartTimer()
@@ -629,10 +594,10 @@ func BenchmarkOrderedMap_Ldelete_oneEntry(b *testing.B) {
 		om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 		om.Ldelete("foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Delete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 
 	b.StartTimer()
@@ -640,10 +605,10 @@ func BenchmarkMap_Delete_oneEntry(b *testing.B) {
 		m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 		delete(m, "foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Delete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 
 	b.StartTimer()
@@ -651,10 +616,10 @@ func BenchmarkOmE_Delete_oneEntry(b *testing.B) {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 		om.Delete("foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Delete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 
 	b.StartTimer()
@@ -662,10 +627,10 @@ func BenchmarkOmW_Delete_oneEntry(b *testing.B) {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 		om.Delete("foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Delete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 
 	b.StartTimer()
@@ -673,10 +638,10 @@ func BenchmarkOmI_Delete_oneEntry(b *testing.B) {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 		om.Delete("foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Delete_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 
 	b.StartTimer()
@@ -684,10 +649,10 @@ func BenchmarkOmC_Delete_oneEntry(b *testing.B) {
 		om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 		om.Delete("foo-0")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Delete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 
 	b.StartTimer()
@@ -703,10 +668,10 @@ func BenchmarkOrderedMap_Delete_fiveEntries(b *testing.B) {
 		om.Delete("foo-3")
 		om.Delete("foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_Ldelete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 
 	b.StartTimer()
@@ -722,10 +687,10 @@ func BenchmarkOrderedMap_Ldelete_fiveEntries(b *testing.B) {
 		om.Ldelete("foo-3")
 		om.Ldelete("foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Delete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 
 	b.StartTimer()
@@ -741,10 +706,10 @@ func BenchmarkMap_Delete_fiveEntries(b *testing.B) {
 		delete(m, "foo-3")
 		delete(m, "foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Delete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 
 	b.StartTimer()
@@ -760,10 +725,10 @@ func BenchmarkOmE_Delete_fiveEntries(b *testing.B) {
 		om.Delete("foo-3")
 		om.Delete("foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Delete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 
 	b.StartTimer()
@@ -779,10 +744,10 @@ func BenchmarkOmW_Delete_fiveEntries(b *testing.B) {
 		om.Delete("foo-3")
 		om.Delete("foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Delete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 
 	b.StartTimer()
@@ -798,10 +763,10 @@ func BenchmarkOmI_Delete_fiveEntries(b *testing.B) {
 		om.Delete("foo-3")
 		om.Delete("foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Delete_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 
 	b.StartTimer()
@@ -817,10 +782,10 @@ func BenchmarkOmC_Delete_fiveEntries(b *testing.B) {
 		om.Delete("foo-3")
 		om.Delete("foo-4")
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_IterateWithRange_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -830,10 +795,10 @@ func BenchmarkOrderedMap_IterateWithRange_oneEntry(b *testing.B) {
 			return true
 		})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_IterateWithFront_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -844,10 +809,10 @@ func BenchmarkOrderedMap_IterateWithFront_oneEntry(b *testing.B) {
 			_ = ent.Value()
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Iterate_oneEntry(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 	m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 
@@ -858,10 +823,10 @@ func BenchmarkMap_Iterate_oneEntry(b *testing.B) {
 			_ = v
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Iterate_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -872,10 +837,10 @@ func BenchmarkOmE_Iterate_oneEntry(b *testing.B) {
 			_ = el.Value
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Iterate_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -886,10 +851,10 @@ func BenchmarkOmW_Iterate_oneEntry(b *testing.B) {
 			_ = pair.Value
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Iterate_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -900,10 +865,10 @@ func BenchmarkOmI_Iterate_oneEntry(b *testing.B) {
 			_ = v
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Iterate_oneEntry(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 
@@ -915,10 +880,10 @@ func BenchmarkOmC_Iterate_oneEntry(b *testing.B) {
 			_ = kv.Value
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_IterateWithRange_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Store("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -932,10 +897,10 @@ func BenchmarkOrderedMap_IterateWithRange_fiveEntries(b *testing.B) {
 			return true
 		})
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOrderedMap_IterateWithFront_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := orderedmap.New[string, Foo]()
 	om.Store("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Store("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -950,10 +915,10 @@ func BenchmarkOrderedMap_IterateWithFront_fiveEntries(b *testing.B) {
 			_ = ent.Value()
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkMap_Iterate_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	m := make(map[string]Foo)
 	m["foo-0"] = Foo{Bar: "bar-0", Baz: 0}
 	m["foo-1"] = Foo{Bar: "bar-1", Baz: 1}
@@ -968,10 +933,10 @@ func BenchmarkMap_Iterate_fiveEntries(b *testing.B) {
 			_ = v
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmE_Iterate_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_e.NewOrderedMap[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -986,10 +951,10 @@ func BenchmarkOmE_Iterate_fiveEntries(b *testing.B) {
 			_ = el.Value
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmW_Iterate_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_w.New[string, Foo]()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -1004,10 +969,10 @@ func BenchmarkOmW_Iterate_fiveEntries(b *testing.B) {
 			_ = pair.Value
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmI_Iterate_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_i.New()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -1022,10 +987,10 @@ func BenchmarkOmI_Iterate_fiveEntries(b *testing.B) {
 			_ = v
 		}
 	}
-	b.StopTimer()
 }
 
 func BenchmarkOmC_Iterate_fiveEntries(b *testing.B) {
+	b.StopTimer()
 	om := om_c.NewOrderedMap()
 	om.Set("foo-0", Foo{Bar: "bar-0", Baz: 0})
 	om.Set("foo-1", Foo{Bar: "bar-1", Baz: 1})
@@ -1041,5 +1006,4 @@ func BenchmarkOmC_Iterate_fiveEntries(b *testing.B) {
 			_ = kv.Value
 		}
 	}
-	b.StopTimer()
 }
