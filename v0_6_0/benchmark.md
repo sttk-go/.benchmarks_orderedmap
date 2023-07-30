@@ -1,6 +1,6 @@
 # Benchmark of orderedmap v0.6.0
 
-This measurement compared [github.com/sttk/orderedmap](https://github.com/sttk/orderedmap-go) v0.6.0 with v0.5.0
+This measurement compared [github.com/sttk/orderedmap](https://github.com/sttk/orderedmap) v0.6.0 with v0.5.0
 
 > BenchmarkNew_* ... v0.6.0, BenchmarkOld_* ... v0.5.0
 

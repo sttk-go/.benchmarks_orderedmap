@@ -1,6 +1,6 @@
 # Benchmark of orderedmap v0.1.0
 
-This measurement compared [github.com/sttk/orderedmap](https://github.com/sttk/orderedmap-go) with the following libraries:
+This measurement compared [github.com/sttk/orderedmap](https://github.com/sttk/orderedmap) with the following libraries:
 
 - go standard map
 - [github.com/elliotchance/orderedmap/v2](https://github.com/elliotchance/orderedmap)
